@@ -6,7 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.vsm.devcase.FiltroForm;
+import com.vsm.devcase.Cliente;
 import com.vsm.devcase.Venda;
 import com.vsm.devcase.repository.VendaRepository;
 
@@ -41,7 +41,7 @@ public class VendaServiceImpl implements VendaService {
 	}
 
 	@Override
-	public Venda save(Venda venda) {
+	public Venda registrarVenda(Venda venda) {
 		
 		if(venda.getValorVenda() >= 1 && venda.getValorVenda() <= 50) {
 			venda.getCliente().setPontos(venda.getCliente().getPontos() + 5);
@@ -57,6 +57,11 @@ public class VendaServiceImpl implements VendaService {
 	@Override
 	public List<Venda> findAll() {
 		return (List<Venda>) vendaRepository.findAll();
+	}
+
+	@Override
+	public List<Cliente> getAllClientes() {
+		return (List<Cliente>) vendaRepository.findAllClientes();
 	}
 
 }

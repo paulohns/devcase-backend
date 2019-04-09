@@ -22,7 +22,7 @@ public class Cliente {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer id;
+	private Long id;
 
 	@Column(name = "nome")
 	private String nome;
@@ -40,32 +40,52 @@ public class Cliente {
 	@JsonManagedReference
 	private List<Venda> vendas;
 
-	public Integer getId() {
+	public Long getId() {
 		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getNome() {
 		return nome;
 	}
 
-	public Integer getPontos() {
-		return pontos;
-	}
-	
-	public void setPontos(Integer pontos) {
-		this.pontos = pontos;
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 
 	public String getCpf() {
 		return cpf;
 	}
 
-	public List<Venda> getVendas() {
-		return vendas;
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
 	}
 
 	public String getSexo() {
 		return sexo;
+	}
+
+	public void setSexo(String sexo) {
+		this.sexo = sexo;
+	}
+
+	public Integer getPontos() {
+		return pontos;
+	}
+
+	public void setPontos(Integer pontos) {
+		this.pontos = pontos;
+	}
+
+	public List<Venda> getVendas() {
+		return vendas;
+	}
+
+	public void setVendas(List<Venda> vendas) {
+		this.vendas = vendas;
 	}
 
 }
