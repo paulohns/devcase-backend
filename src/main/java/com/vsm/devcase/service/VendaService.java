@@ -3,8 +3,6 @@ package com.vsm.devcase.service;
 import java.time.LocalDate;
 import java.util.List;
 
-import org.springframework.web.bind.annotation.ResponseBody;
-
 import com.vsm.devcase.Cliente;
 import com.vsm.devcase.Venda;
 

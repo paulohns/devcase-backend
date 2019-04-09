@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.vsm</groupId>
     <artifactId>devcase</artifactId>
-    <version>0.0.5-SNAPSHOT</version>
+    <version>0.0.6-SNAPSHOT</version>
     <name>devcase</name>
     <description>Developer Case VSM</description>
 
@@ -97,12 +97,6 @@
 						<version>${surefire.plugin}</version>
 					</dependency>
 				</dependencies>
-				<configuration>
-					<includes>
-						<include>**/*.class</include>
-					</includes>
-					<excludedGroups>br.com.bb.controller.IntegrationTest</excludedGroups>
-				</configuration>
 			</plugin>
 			<!-- Configuração de testes integrados -->
 			<plugin>
@@ -116,12 +110,6 @@
 						<version>${failsafe.plugin}</version>
 					</dependency>
 				</dependencies>
-				<configuration>
-					<includes>
-						<includes>**/*.class</includes>
-					</includes>
-					<groups>br.com.bb.controller.IntegrationTest</groups>
-				</configuration>
 			</plugin>
 		</plugins>
 	</build>

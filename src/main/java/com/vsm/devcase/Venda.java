@@ -1,5 +1,6 @@
 package com.vsm.devcase;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
 import javax.persistence.CascadeType;
@@ -12,7 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 /**
  * @author pauloneves
@@ -20,7 +21,12 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
  */
 @Entity
 @Table(name = "vendas")
-public class Venda {
+public class Venda implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4017902335528896149L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -33,7 +39,7 @@ public class Venda {
 	private Float valorVenda;
 
 	@ManyToOne(cascade = { CascadeType.MERGE, CascadeType.PERSIST }, fetch = FetchType.EAGER)
-	@JsonBackReference
+	@JsonManagedReference
 	private Cliente cliente;
 
 	public Long getId() {

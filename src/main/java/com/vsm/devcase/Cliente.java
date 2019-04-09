@@ -1,5 +1,6 @@
 package com.vsm.devcase;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -10,7 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 /**
  * @author pauloneves
@@ -18,7 +19,12 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
  */
 @Entity
 @Table(name = "cliente")
-public class Cliente {
+public class Cliente implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8791514544810826911L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -37,7 +43,7 @@ public class Cliente {
 	private Integer pontos;
 
 	@OneToMany(mappedBy = "cliente")
-	@JsonManagedReference
+	@JsonBackReference
 	private List<Venda> vendas;
 
 	public Long getId() {
